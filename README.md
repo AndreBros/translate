@@ -156,4 +156,3 @@ Include license details here (e.g., MIT License). Specify the terms under which 
 
 ---
 
-This documentation provides a factual and detailed explanation of the script's functionality, configuration, and usage.
