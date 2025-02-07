@@ -14,10 +14,10 @@ from requests.exceptions import Timeout, RequestException
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
-    filename=r'C:\Users\AndréBroskij\translations\Logs\translation_log.txt',  # Log file path
+    filename=r'C:\Users\Username\translations\Logs\translation_log.txt',  # Log file path
     filemode='a'  # Append logs to the file
 )
-# Semaphore for rate limiting
+# Semaphore for rate limiting slow down the hitting on Translate service
 semaphore = threading.Semaphore(5)
 
 languages = {
@@ -114,7 +114,7 @@ def main(input_file_path, output_directory):
         output_file_path = fr'{output_directory}\Translated_To_{target_lang.upper()}.txt'
         print(f"Output will be saved to: {output_file_path}")
         
-        # Translation process
+        # Translation process 
         total_lines = len(lines)
         with ThreadPoolExecutor(max_workers=5) as executor:  # Max workers is set to 5 to control the rate limit
             future_to_line = {executor.submit(translate_line, line, input_language, target_lang, index): line for index, line in enumerate(lines)}
@@ -147,8 +147,8 @@ def main(input_file_path, output_directory):
         logging.error(f"An error occurred: {e}")
         print(f"An error occurred: {e}")
 
-# Example usage
+# Example usage 
 if __name__ == "__main__":
-    input_file_path = r'C:\Users\AndréBroskij\translations\Input\All_English.txt'
-    output_directory = r'C:\Users\AndréBroskij\translations\Output'
+    input_file_path = r'C:\Users\Username\translations\Input\All_English.txt'
+    output_directory = r'C:\Users\Username\translations\Output'
     main(input_file_path, output_directory)
