@@ -152,7 +152,7 @@ At the end of the translation process, the script prompts the user to decide whe
 
 ## License
 
-Include license details here (e.g., MIT License). Specify the terms under which the script is distributed.
+Standard GitHub issued MIT license, see License Document
 
 ---
 
